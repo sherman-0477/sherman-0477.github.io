@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Link to connect google fonts used-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
 	<title>Website Survey</title>
 </head>
 <body>	
@@ -8,6 +15,58 @@
 	<p>Take a look at the main page of <a href="http://amazon.ca">Amazon</a>. What do you think of it?</p>
 	<p>First name: <input type="text" name="firstname"></p>
 	<p>Last name: <input type="text" name="lastname"></p>
+  
+  <!-- Section for the search bar radio question-->
+  <div class="radio_question_2">
+    <p>How easy was it to find the Search Bar and start searching?</p>
+
+    <div>
+      <input type="radio" id="easy" name="radio_button_2">
+      <label for="easy">Easy</label>
+      </div>
+  
+      <div>
+      <input type="radio" id="kind_easy" name="radio_button_2">
+      <label for="kind_easy">Kind of Easy</label>
+      </div>
+  
+      <div>
+      <input type="radio" id="fine" name="radio_button_2">
+      <label for="fine">Fine</label>
+      </div>
+
+      <div>
+      <input type="radio" id="some_hard" name="radio_button_2">
+      <label for="some_hard">Somewhat Hard</label>
+      </div>
+
+      <div>
+      <input type="radio" id="hard" name="radio_button_2">
+      <label for="hard">Hard</label>
+      </div>
+
+  </div>
+<!-- Section for the second radio question-->
+  <div class="radio_question">
+    <p>How trustworthy does the Interface feel?</p>
+
+    <div>
+    <input type="radio" id="security" name="radio_button">
+    <label for="security">Security</label>
+    </div>
+
+    <div>
+    <input type="radio" id="legitimacy" name="radio_button">
+    <label for="legitimacy">Legitimacy</label>
+    </div>
+
+    <div>
+    <input type="radio" id="clarity" name="radio_button">
+    <label for="clarity">Clarity</label>
+    </div>
+
+  </div>
+  <!-- Signatures at the end of the wesbite-->
 	<p id="signature">Site created by Sherman, Piranavan, and Shehzad</p>	
 	</form>
   </body>

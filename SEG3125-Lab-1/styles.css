@@ -66,3 +66,42 @@ table {
   font-style: italic;
   font-size: 75%;
 }
+
+/* change the font for the entire quesiton seection */
+.radio_question {
+  font-family: 'Noto Sans', sans-serif;
+  color: #197BBD; /* Light blue */
+}
+
+.radio_question p {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  color: #7019BD; /* Dark purple */
+  margin-top: 45px;
+  font-size: 18px;
+}
+
+/* spacing out for the 3 option radio question */
+.radio_question div {
+  margin-bottom: 20px;
+}
+
+/* spacing out the options for the search bar radio question */
+.radio_question_2 div {
+  color: #106549; /* tourqoize green */
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+
+/* For the text of search bar question */
+.radio_question_2 p {
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #E87390; /* toned out pink */
+}
+
+/* Custom font for this section */
+.radio_question_2 {
+  font-family: 'Playfair Display', serif;
+}
