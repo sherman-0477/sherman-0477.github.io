@@ -10,9 +10,16 @@ html {
 body {
   background-color: powderblue;
   width: 600px;
+  max-width: 95vw;           
+  margin: 30px auto; 
   border: 2px solid black;
   padding: 0px 20px 20px 20px;
+  font-family: 'Noto Sans', sans-serif;
   
+}
+
+body > p {
+  text-align: center;
 }
 
 h1 {
@@ -26,12 +33,25 @@ h1 {
 
 img {
   display: block;
-  margin: 0 auto;
-  align: center;
+  max-width: 100%;        
+  height: auto;              
+  margin: 12px auto;         
+  border: 2px solid black;
+  border-radius: 6px;
 }
 
 p {
   color: red;
+  margin: 10px 0;
+}
+
+a {
+  color: #0000ee;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 table {
@@ -41,11 +61,91 @@ table {
 
 /* Defining styling for a specific element type - each question */
 .question {
-  background-color: black;
+  background-color: #9DDE8B;
   color: white;
   margin: 20px;
   padding: 20px;
+  border-radius: 8px;
 }
+
+.question input[type="text"],
+.question select,
+.question textarea {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #cfcfcf;
+  width: calc(100% - 24px);
+  margin: 10px 12px 0 12px;
+  box-sizing: border-box;
+}
+
+/* textarea fit  inside boxes */
+.question textarea {
+  width: calc(100% - 24px);  
+  margin: 10px 12px 0 12px;  
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.question p {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.question p {
+  font-weight: bold;
+  font-size: 18px;
+  color: red;
+}
+
+
+
+.radio_question,
+.radio_question_2 {
+  background-color: #9DDE8B;
+  color: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.radio_question label,
+.radio_question_2 label {
+  color: #ff7f7f;
+  font-size: 16px;
+}
+
+.radio_question div,
+.radio_question_2 div {
+  margin-bottom: 12px;
+}
+
+.radio_question p {
+  font-weight: bold;
+  color: red;
+  margin: 0 0 12px 0;
+  font-size: 18px;
+}
+
+.radio_question_2 p {
+  font-weight: bold;
+  font-size: 18px;
+  color: red;
+  margin: 0 0 12px 0;
+}
+
+
+.radio_question {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.radio_question_2 {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
 
 /* Defining styling for a specific element type - large block buttons */
 .block {
@@ -59,49 +159,74 @@ table {
   text-align: center;
 }
 
-/* Defining styling for a specific element with an id */
+
+button[type="submit"] {
+  background-color: #ffff66; 
+  color: black;
+  border: 2px solid black;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button[type="submit"]:hover {
+  background-color: #9DDE8B;
+  color: white;
+}
+
+
 #signature {
   text-align: right;
   color: red;
   font-style: italic;
   font-size: 75%;
+  margin-top: 10px;
 }
 
-/* change the font for the entire quesiton seection */
+
+
+
+
+/*
+IMPORTANT THIS IS ANOTHER CSS STYLE THAT SHEZEHAD HAD CREATED FOR HIS SECTION, FOR
+ THE PURPOSES OF THIS LAB, WE CREATED A SIMPLE UNIFORM CSS STYLE. WE WILL UPDATE IN FUTURE ITERATIONS.
+ change the font for the entire quesiton seection 
 .radio_question {
   font-family: 'Noto Sans', sans-serif;
-  color: #197BBD; /* Light blue */
+  /*color: #197BBD;  Light blue 
 }
 
 .radio_question p {
   font-family: 'Noto Sans', sans-serif;
   font-weight: bold;
-  color: #7019BD; /* Dark purple */
+  color: #7019BD;  Dark purple 
   margin-top: 45px;
   font-size: 18px;
 }
 
-/* spacing out for the 3 option radio question */
+spacing out for the 3 option radio question 
 .radio_question div {
   margin-bottom: 20px;
 }
 
-/* spacing out the options for the search bar radio question */
+spacing out the options for the search bar radio question 
 .radio_question_2 div {
-  color: #106549; /* tourqoize green */
+  color: #106549; tourqoize green 
   margin-bottom: 18px;
   font-size: 15px;
 }
 
-/* For the text of search bar question */
+For the text of search bar question 
 .radio_question_2 p {
   margin-top: 60px;
   font-weight: bold;
   font-size: 18px;
-  color: #E87390; /* toned out pink */
-}
+  color: #E87390;  toned out pink 
 
-/* Custom font for this section */
+ Custom font for this section 
 .radio_question_2 {
   font-family: 'Playfair Display', serif;
 }
+*/

@@ -10,12 +10,29 @@
 
 	<title>Website Survey</title>
 </head>
-<body>	
+  <body>	
 	<h1>Website Survey</h1>
 	<p>Take a look at the main page of <a href="http://amazon.ca">Amazon</a>. What do you think of it?</p>
-	<p>First name: <input type="text" name="firstname"></p>
-	<p>Last name: <input type="text" name="lastname"></p>
-  
+
+  <a href="https://www.amazon.ca" target="_blank" rel="noopener noreferrer">
+    <img src="amazon-ui.png" alt="Amazon homepage UI screenshot" width="850">
+  </a>
+
+  <form action="#" method="post">
+   
+    <div class="question">
+      <p>First name: <input type="text" name="firstname"></p>
+    </div>
+
+    <div class="question">
+      <p>Last name: <input type="text" name="lastname"></p>
+    </div>
+
+    <div class="question">
+      <p>What was your main goal when you visited this website? </p>
+	  <textarea name="goal" rows="4" cols="60" placeholder="Write your response here..."></textarea>
+    </div>
+
   <!-- Section for the search bar radio question-->
   <div class="radio_question_2">
     <p>How easy was it to find the Search Bar and start searching?</p>
@@ -52,20 +69,75 @@
 
     <div>
     <input type="radio" id="security" name="radio_button">
-    <label for="security">Security</label>
+    <label for="security">Very Trustworthy</label>
     </div>
 
     <div>
     <input type="radio" id="legitimacy" name="radio_button">
-    <label for="legitimacy">Legitimacy</label>
+    <label for="legitimacy">Moderately Trustworthy</label>
     </div>
 
     <div>
     <input type="radio" id="clarity" name="radio_button">
-    <label for="clarity">Clarity</label>
+    <label for="clarity">Not Trustworthy</label>
     </div>
 
   </div>
+    <div class="question">
+      <p>
+        How visually cluttered does the homepage feel?
+        <select name="clutter_level">
+          <option value="" selected disabled>Select one</option>
+          <option value="not_cluttered">Not cluttered</option>
+          <option value="slightly_cluttered">Slightly cluttered</option>
+          <option value="moderately_cluttered">Moderately cluttered</option>
+          <option value="very_cluttered">Very cluttered</option>
+          <option value="overwhelming">Overwhelming</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="question">
+      <p>Which UI elements helped you navigate? (Select all that apply)</p>
+
+      <div>
+        <input type="checkbox" id="top_nav" name="helpful_elements" value="top_nav">
+        <label for="top_nav">Top navigation menu</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="search_filters" name="helpful_elements" value="search_filters">
+        <label for="search_filters">Search and filters</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="categories" name="helpful_elements" value="categories">
+        <label for="categories">Category shortcuts</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="recommendations" name="helpful_elements" value="recommendations">
+        <label for="recommendations">Recommended products</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="account_cart" name="helpful_elements" value="account_cart">
+        <label for="account_cart">Account and cart icons</label>
+      </div>
+    </div>
+
+    <!-- Space to write comments -->
+    <div class="question">
+      <p>Comments / suggestions to improve the UI:</p>
+      <textarea name="comments" rows="6" cols="60" placeholder="Write your comments here..."></textarea>
+    </div>
+
+    <!-- Submit button -->
+    <div class="question">
+      <button type="submit">Submit Questionnaire</button>
+    </div>
+  </form>
+  
   <!-- Signatures at the end of the wesbite-->
 	<p id="signature">Site created by Sherman, Piranavan, and Shehzad</p>	
 	</form>
