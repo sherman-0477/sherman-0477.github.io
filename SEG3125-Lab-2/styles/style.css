@@ -5,17 +5,22 @@
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
+  position: relative;
 }
 
 /* Style the buttons that are used to open the tab content */
+/* Used this website to learn how to underline https://www.w3schools.com/cssref/pr_text_text-decoration.php */
 .tab button {
   background-color: inherit;
   float: left;
   border: none;
   outline: none;
   cursor: pointer;
+  font-size: 20px;
+  font-style: italic;
   padding: 14px 16px;
   transition: 0.3s;
+  color:white;
 }
 
 /* Change background color of buttons on hover */
@@ -26,6 +31,9 @@
 /* Create an active/current tablink class */
 .tab button.active {
   background-color: #ccc;
+  /* making it more unique with text colour changing and underlining */
+  color: red;
+  text-decoration: underline;
 }
 
 /* Style the tab content */
@@ -34,4 +42,85 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+  color: white;
+  font-size: 20px;
+}
+
+/* Putting the superStore logo on the right corner of the web pages */
+/* used https://www.youtube.com/watch?v=cYWKiB7Ll-g to get better understanding */
+#superStore {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  width: auto;
+  height: calc(clamp(56px, 6vw, 92px) * 2.00);
+}
+
+/*Trying to make the store title match the brand of superstore. */
+/*I did google what font the brand used and googled how to make text shadow. https://www.w3schools.com/cssref/func_clamp.php for clamp function, i do not believe it was executed right, or I acheieved what I wanted with it. */
+.store-title{
+  margin: 12px 0 6px 12px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: clamp(56px, 6vw, 92px);
+  line-height: 1;
+  letter-spacing: -1px;
+  text-transform: none;
+
+  /* leaving space so it won't collide with the logo */
+  padding-right: 240px;
+
+  /* experimenting with text shadow */
+  text-shadow: 0 1px 0 #E04234;
+}
+/* making the background of the webpage red */
+body {
+  background-color: #E04234;
+}
+
+/* making the tabs background red */
+.tab {
+  background-color: #E04234;
+}
+
+/* trying custom font */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Bottom of the web page. */
+.signature{
+  text-align: center;
+  color: white;
+  margin: 22px 0 10px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.instructions-box{
+  max-width: 900px;
+  margin: 0 auto 28px auto;
+  padding: 16px 16px;
+  border: 2px solid white;
+  border-radius: 10px;
+
+  background: #E04234;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.instructions-title{
+  margin: 0 0 10px 0;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.instructions-text{
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
 }

@@ -27,40 +27,49 @@ function openInfo(evt, tabName) {
 // generate a checkbox list from a list of products
 // it makes each product name as the label for the checkbos
 
-function populateListProductChoices(slct1, slct2) {
-    var s1 = document.getElementById(slct1);
-    var s2 = document.getElementById(slct2);
-	
-	// s2 represents the <div> in the Products tab, which shows the product list, so we first set it empty
-    s2.innerHTML = "";
-		
-	// obtain a reduced list of products based on restrictions
-    var optionArray = restrictListProducts(products, s1.value);
+function populateListProductChoices(slct2) {
+	let s2 = document.getElementById(slct2);
+	s2.innerHTML = "";
 
-	// for each item in the array, create a checkbox element, each containing information such as:
-	// <input type="checkbox" name="product" value="Bread">
-	// <label for="Bread">Bread/label><br>
-		
-	for (i = 0; i < optionArray.length; i++) {
-			
-		var productName = optionArray[i];
-		// create the checkbox and add in HTML DOM
-		var checkbox = document.createElement("input");
+	// get diet restrictions
+	let restrictions = [];
+	let diets = document.getElementsByName("diet");
+	for (let i = 0; i < diets.length; i++) {
+		if (diets[i].checked) {
+			restrictions.push(diets[i].value);
+		}
+	}
+
+	// get organic preference
+	let organicPref = "None";
+	let radios = document.getElementsByName("organicOption");
+	for (let i = 0; i < radios.length; i++) {
+		if (radios[i].checked) {
+			organicPref = radios[i].value;
+		}
+	}
+
+	let options = restrictListProducts(products, restrictions, organicPref);
+
+	for (let i = 0; i < options.length; i++) {
+		let checkbox = document.createElement("input");
 		checkbox.type = "checkbox";
 		checkbox.name = "product";
-		checkbox.value = productName;
+		checkbox.value = options[i].name;
 		s2.appendChild(checkbox);
-		
-		// create a label for the checkbox, and also add in HTML DOM
-		var label = document.createElement('label')
-		label.htmlFor = productName;
-		label.appendChild(document.createTextNode(productName));
+
+		let label = document.createElement("label");
+		label.appendChild(
+			document.createTextNode(
+				options[i].name + " ($" + options[i].price.toFixed(2) + ")"
+			)
+		);
 		s2.appendChild(label);
-		
-		// create a breakline node and add in HTML DOM
-		s2.appendChild(document.createElement("br"));    
+
+		s2.appendChild(document.createElement("br"));
 	}
 }
+
 	
 // This function is called when the "Add selected items to cart" button in clicked
 // The purpose is to build the HTML to be displayed (a Paragraph) 
@@ -88,7 +97,8 @@ function selectedItems(){
 		
 	// add paragraph and total price
 	c.appendChild(para);
-	c.appendChild(document.createTextNode("Total Price is " + getTotalPrice(chosenProducts)));
+	let total = getTotalPrice(chosenProducts);
+	c.appendChild(document.createTextNode("Total Price is [CAD]: $" + getTotalPrice(chosenProducts)));
 		
 }
 

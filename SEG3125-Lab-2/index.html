@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+  <! trying custom fonts>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,800;1,800&display=swap" rel="stylesheet">
 <head>
 	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
 	<link href="styles/style.css" rel="stylesheet" type="text/css">
@@ -9,22 +13,36 @@
 
 <!-- Tab links, each one with an onclick event associated with it -->
 <div class="tab">
-  <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
+  <h1 class="store-title">Real Canadian Superstore</h1>
+  <button class="tablinks" onclick="openInfo(event, 'Client')">Customer</button>
   <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
   <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+
+  <!-- Adding in the image of the superstore logo to make wesbite look more polished-->
+  <img src="images/superstore-logo.png" alt="Superstore logo"  id="superStore">
 </div>
 
 <!-- Tab content -->
 <div id="Client" class="tabcontent">
-  <h3>Client Information</h3>
-  <p>Tell us a bit about you.</p>
-	Choose a Category:
-	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
-	<option value=""></option>
-	<option value="Vegetarian">Vegetarian</option>
-    <option value="GlutenFree">GlutenFree</option>
-    <option value="None">None</option>
-	</select>
+  <h3>Customer Information</h3>
+  <p>Tell us a bit about yourself.</p><br>
+	<!-- used this website to help learn with making labels https://www.w3schools.com/tags/tag_label.asp -->
+  <!-- used this to learn how to use br statements https://www.youtube.com/watch?v=Romw2Oes8mg-->
+   <label> Diet Restriction:</label><br><br>
+
+   <input type="checkbox" name="diet" value="Vegetarian" onchange="populateListProductChoices('displayProduct')">
+   <label for="vegetarian">Vegetarian</label><br><br>
+
+   <input type="checkbox" name="diet" value="GlutenFree" onchange="populateListProductChoices('displayProduct')">
+   <label for="gluten">Gluten Free</label><br><br><br>
+
+   <label for="organicOption"> Do you Prefer Organic or Non-Organic:</label><br><br>
+
+   <input type="radio" name="organicOption" value="Organic" onchange="populateListProductChoices('displayProduct')">
+   <label for="organic">Organic</label><br><br>
+
+   <input type="radio" name="organicOption" value="Non-Organic" onchange="populateListProductChoices('displayProduct')">
+   <label for="nonOrganic">Non-Organic</label><br>
 </div>
 
 <div id="Products" class="tabcontent">
@@ -45,6 +63,19 @@
 
 <script src="scripts/groceries.js"></script>
 <script src="scripts/main.js"></script>
+<p class="signature">Website designed by Shehzad, Piranavan and Sherman.
+
+<div class="instructions-box">
+  <h4 class="instructions-title">Instructions</h4>
+  
+  <p class="instructions-text">
+    Please make selections in the Customer page.<br><br>
+    Then please move on to the Products page, make your selections for items you want to purchase and then click the button that reads
+    <strong>"Add selected items to cart."</strong><br><br>
+    Finally move on to the Cart page to find the total price of the items in your cart.
+  </p>
+  
+</div>
 
 </body>
 </html>
