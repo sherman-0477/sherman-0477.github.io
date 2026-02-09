@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <! trying custom fonts>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,800;1,800&display=swap" rel="stylesheet">
+<head>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- Tab links, each one with an onclick event associated with it -->
+<div class="tab">
+  <h1 class="store-title">Real Canadian Superstore</h1>
+  <!-- Implement breadcrumb-->
+  <!-- Referecned this video: https://www.youtube.com/watch?v=z0ZIsKM_vJw-->
+  <ul class="breadcrumb-container">
+    <li><a href="#" onclick="openInfo(event, 'Client')">Customer</a></li>
+    <li><a href="#" onclick="openInfo(event, 'Products')">Product</a></li>
+    <li><a href="#" onclick="openInfo(event, 'Cart')">Cart</a></li>
+  </ul>
+
+ 
+  <!-- Adding in the image of the superstore logo to make wesbite look more polished-->
+  <img src="images/superstore-logo.png" alt="Superstore logo"  id="superStore">
+</div>
+
+
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+  <h3>Customer Information</h3>
+  <p>Please provide some information about your diet.</p>
+
+   <label for="dietSelect">Diet preference:</label>
+   <select id="dietSelect" name="diet" onchange="populateListProductChoices('displayProduct')">
+      <option value="None">None</option>
+      <option value="Vegetarian">Vegetarian</option>
+      <option value="GlutenFree">Gluten-Free</option>
+    </select><br><br>
+
+  <label>Filter by category (optional):</label><br>
+
+   <input type="checkbox" name="category" value="Vegetable" onchange="populateListProductChoices('displayProduct')">
+   <label for="vegetablesCategory">Vegetables</label><br>
+
+   <input type="checkbox" name="category" value="Dairy" onchange="populateListProductChoices('displayProduct')">
+   <label for="dairyCategory">Dairy</label><br>
+
+   <input type="checkbox" name="category" value="Fruits" onchange="populateListProductChoices('displayProduct')">
+   <label for="fruitsCategory">Fruits</label><br>
+
+   <input type="checkbox" name="category" value="Meat" onchange="populateListProductChoices('displayProduct')">
+   <label for="meatCategory">Meat</label><br><br>
+
+   <label for="organicOption">Do you prefer Organic or Non-Organic?</label><br>
+
+   <input type="radio" name="organicOption" value="Organic" onchange="populateListProductChoices('displayProduct')">
+   <label for="organic">Organic</label><br>
+
+   <input type="radio" name="organicOption" value="Non-Organic" onchange="populateListProductChoices('displayProduct')">
+   <label for="nonOrganic">Non-Organic</label><br>
+</div>
+
+<div id="Products" class="tabcontent">
+  <h3>Products By Preference</h3>
+  <p>Please use the search bar to search for items that fit your preference. </p>
+  
+  <!-- Implementing the search bar feature -->
+  <!-- Code inspired by: https://www.youtube.com/watch?v=9hnJsNIBq1g-->
+  <!-- https://www.w3schools.com/Jsref/event_onkeyup.asp to learn about on key ups-->
+  <form class="search-bar">
+    <input type="text" placeholder="Search Products" name="Q" onkeyup="updateSearch(this.value)">
+    <button type="button"><img src="images/search.png"></button>
+  </form>
+  
+  
+  <p>Please use the "Sort By Price" and "Price Range" options to find products in your budget. </p>
+
+  <label for="sortOrder"><strong>Sort by price:</strong></label>
+  <select id="sortOrder" onchange="populateListProductChoices('displayProduct')">
+    <option value="asc">Lowest to highest</option>
+    <option value="desc">Highest to lowest</option>
+  </select>
+
+  <br><br>
+
+  <div class="price-filter">
+    <p><strong>Price range (CAD):</strong>
+      <span id="priceMinText">$0.00</span>
+      to
+      <span id="priceMaxText">$0.00</span>
+    </p>
+
+    <label for="priceMin">Minimum:</label>
+    <input type="range" id="priceMin" step="0.10" oninput="updatePriceUI()">
+
+    <br>
+
+    <label for="priceMax">Maximum:</label>
+    <input type="range" id="priceMax" step="0.10" oninput="updatePriceUI()">
+  </div>
+
+  <br>
+
+  <div id="displayProduct"></div>
+
+  <button id="addCart" type="button" class="block" onclick="selectedItems()">
+    Add selected items to cart.
+  </button>
+</div>
+
+<div id="Cart" class="tabcontent">
+  <h3>Cart</h3>
+  <p>Here is your cart.</p>
+  <div id="displayCart"></div>
+</div>
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+<p class="signature">Website designed by Shehzad, Piranavan and Sherman.
+
+<div class="instructions-box">
+  <h4 class="instructions-title">Instructions</h4>
+  
+  <p class="instructions-text">
+    Please make selections for your preferences in the Customer page.<br><br>
+    Then please move on to the Products page, where you will be able to search for items and sort by proce.
+	Make your selections for items you want to purchase and then click the button that reads
+    <strong>"Add selected items to cart."</strong><br><br>
+    Finally move on to the Cart page to find the total price of the items in your cart.
+  </p>
+  
+</div>
+
+</body>
+</html>
