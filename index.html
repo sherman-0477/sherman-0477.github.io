@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sherman's Portfolio</title>
+    <link rel="stylesheet" href="styles/cascade.css">
     <style>
         * {
             margin: 0;
@@ -73,7 +74,7 @@
         .links-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 0;
             margin-bottom: 30px;
         }
 
@@ -87,6 +88,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             color: #1a0a3e;
+            margin-bottom: 12px;
         }
 
         .link-item:hover {
@@ -179,44 +181,60 @@
         <div class="subtitle">Computer engineering student at uOttawa</div>
         <p class="bio">I focus on embedded systems design using C/C++, but I also (occasionally) work with Java & HTML. This site hosts my projects and coursework, primarily for SEG3125. My other notable projects can also be found here.</p>
 
-        <div class="section-title">SEG3125 Labs</div>
+        <div class="section-title">Main Works</div>
         <div class="links-container">
-            <a href="https://sherman-0477.github.io/SEG3125-Lab-1" class="link-item">
-                <div class="link-label">
-                    <span class="lab-number">Lab 1</span>
-                    <div class="link-description">UI Survey using HTML/CSS</div>
+            <!-- SEG3125 Labs Cascade -->
+            <div class="cascade-container">
+                <button id="cascade-toggle" class="cascade-toggle">
+                    <div class="link-label">
+                        <span class="cascade-icon">▼</span>
+                        SEG3125 Labs
+                    </div>
+                </button>
+                <div id="cascade-items" class="cascade-items">
+                    <a href="https://sherman-0477.github.io/SEG3125-Lab-1" class="cascade-item">
+                        <div class="link-label">
+                            <span class="lab-number">Lab 1</span>
+                            <div class="cascade-item-description">UI Survey using HTML/CSS</div>
+                        </div>
+                        <span>→</span>
+                    </a>
+                    <a href="https://sherman-0477.github.io/SEG3125-Lab-2" class="cascade-item">
+                        <div class="link-label">
+                            <span class="lab-number">Lab 2</span>
+                            <div class="cascade-item-description">Online Grocery Site using JS/CSS</div>
+                        </div>
+                        <span>→</span>
+                    </a>
+                    <a href="https://sherman-0477.github.io/SEG3125-Lab-3" class="cascade-item">
+                        <div class="link-label">
+                            <span class="lab-number">Lab 3</span>
+                            <div class="cascade-item-description">Improvement of Lab 2 using JS/CSS</div>
+                        </div>
+                        <span>→</span>
+                    </a>
+                    <a href="https://sherman-0477.github.io/SEG3125-Lab-4" class="cascade-item">
+                        <div class="link-label">
+                            <span class="lab-number">Lab 4</span>
+                            <div class="cascade-item-description">Bike Repair Website using JS/CSS</div>
+                        </div>
+                        <span>→</span>
+                    </a>
                 </div>
-                <span>→</span>
-            </a>
-            <a href="https://sherman-0477.github.io/SEG3125-Lab-2" class="link-item">
-                <div class="link-label">
-                    <span class="lab-number">Lab 2</span>
-                    <div class="link-description">Online Grocery Site using JS/CSS</div>
-                </div>
-                <span>→</span>
-            </a>
-            <a href="https://sherman-0477.github.io/SEG3125-Lab-3" class="link-item">
-                <div class="link-label">
-                    <span class="lab-number">Lab 3</span>
-                    <div class="link-description">Improvement of Lab 2 using JS/CSS</div>
-                </div>
-                <span>→</span>
-            </a>
-        </div>
+            </div>
 
-        <div class="section-title">Other Works</div>
-        <div class="links-container">
-            <a href="https://github.com/sherman-0477/CEG3156-W25" class="link-item">
-                <div class="link-label">
+            <!-- Other Works -->
+            <a href="https://github.com/sherman-0477/CEG3156-W25" class="other-work-item">
+                <div class="other-work-label">
                     <span>MIPS CPU in VHDL</span>
-                    <div class="link-description">CEG3156-W25</div>
+                    <div class="other-work-description">CEG3156-W25</div>
                 </div>
                 <span>→</span>
             </a>
-            <a href="https://github.com/sherman-0477/sherman-0477.github.io" class="link-item">
-                <div class="link-label">
+            <a href="https://github.com/sherman-0477/sherman-0477.github.io" class="other-work-item">
+                <div class="other-work-label">
                     <span>Personal Website</span>
-                    <div class="link-description">sherman-0477.github.io</div>
+                    <div class="other-work-description">sherman-0477.github.io</div>
                 </div>
                 <span>→</span>
             </a>
@@ -235,5 +253,6 @@
             </a>
         </div>
     </div>
+    <script src="scripts/cascade.js"></script>
 </body>
 </html>
