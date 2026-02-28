@@ -1,4 +1,3 @@
-// Cascade dropdown functionality for main works section
 document.addEventListener('DOMContentLoaded', function() {
     const cascadeToggle = document.getElementById('cascade-toggle');
     const cascadeItems = document.getElementById('cascade-items');
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
             cascadeToggle.classList.toggle('active');
         });
 
-        // Close cascade when clicking on a link
         const cascadeLinks = cascadeItems.querySelectorAll('a');
         cascadeLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -19,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Close cascade when clicking outside
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.cascade-container')) {
                 cascadeItems.classList.remove('show');
