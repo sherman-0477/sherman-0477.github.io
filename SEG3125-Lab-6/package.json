@@ -1,0 +1,16 @@
+{
+  "name": "colorsurvey",
+  "version": "1.0.0",
+  "description": "A survey on color preference",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Caroline Barrière",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.4",
+    "ejs": "^3.1.10",
+    "express": "^4.22.1"
+  }
+}

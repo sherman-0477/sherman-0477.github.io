@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Survey Analysis</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 40px;
+            color: #1f3c88;
+        }
+
+        .header p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 20px 24px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: #1f3c88;
+            border-bottom: 2px solid #e8edf7;
+            padding-bottom: 8px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .card li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            background: #f8faff;
+            border-radius: 8px;
+            border-left: 5px solid #4a90e2;
+        }
+
+        .label {
+            font-weight: 500;
+            word-break: break-word;
+            padding-right: 12px;
+        }
+
+        .count {
+            background: #1f3c88;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 14px;
+            min-width: 28px;
+            text-align: center;
+        }
+
+        .empty {
+            color: #777;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .card li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>Survey Analysis</h1>
+            <p>Survey responses summary</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Names</h2>
+                <% if (results.name.length === 0) { %>
+                    <p class="empty">No responses yet</p>
+                <% } else { %>
+                    <ul>
+                        <% for (var i = 0; i < results.name.length; i++) { %>
+                            <li>
+                                <span class="label"><%= results.name[i].name %></span>
+                                <span class="count"><%= results.name[i].count %></span>
+                            </li>
+                        <% } %>
+                    </ul>
+                <% } %>
+            </div>
+
+            <div class="card">
+                <h2>Birthdays</h2>
+                <% if (results.birthday.length === 0) { %>
+                    <p class="empty">No responses yet</p>
+                <% } else { %>
+                    <ul>
+                        <% for (var i = 0; i < results.birthday.length; i++) { %>
+                            <li>
+                                <span class="label"><%= results.birthday[i].birthday %></span>
+                                <span class="count"><%= results.birthday[i].count %></span>
+                            </li>
+                        <% } %>
+                    </ul>
+                <% } %>
+            </div>
+
+            <div class="card">
+                <h2>Fruits</h2>
+                <% if (results.fruit.length === 0) { %>
+                    <p class="empty">No responses yet</p>
+                <% } else { %>
+                    <ul>
+                        <% for (var i = 0; i < results.fruit.length; i++) { %>
+                            <li>
+                                <span class="label"><%= results.fruit[i].fruit %></span>
+                                <span class="count"><%= results.fruit[i].count %></span>
+                            </li>
+                        <% } %>
+                    </ul>
+                <% } %>
+            </div>
+
+            <div class="card">
+                <h2>Colors</h2>
+                <div class="chart-container">
+                <canvas id="colorChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Animals</h2>
+                <div class="chart-container">
+                <canvas id="animalChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Comments</h2>
+                <% if (results.comments.length === 0) { %>
+                    <p class="empty">No responses yet</p>
+                <% } else { %>
+                    <ul>
+                        <% for (var i = 0; i < results.comments.length; i++) { %>
+                            <li>
+                                <span class="label"><%= results.comments[i].comments %></span>
+                                <span class="count"><%= results.comments[i].count %></span>
+                            </li>
+                        <% } %>
+                    </ul>
+                <% } %>
+            </div>
+        </div>
+    </div>
+	<script>
+      setTimeout(function () {
+        location.reload();
+      }, 3000);
+
+      //Pie graph for colours
+      const colorData = <%- JSON.stringify(results.color) %>;
+
+      new Chart(document.getElementById('colorChart'), {
+        type: 'pie',
+        data: {
+          labels: colorData.map(d => d.color),
+          datasets: [{
+            data: colorData.map(d => d.count),
+            backgroundColor: colorData.map(d => {
+              const map = {
+                Red:   '#e74c3c',
+                Green: '#2ecc71',
+                Blue:  '#3498db'
+              };
+              return map[d.color] || '#aaa';
+            }),
+            borderColor: '#1a1a2e',
+            borderWidth: 3
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { labels: { color: '#333333', font: { size: 14 } } }
+          }
+        }
+      });
+
+      //Bar graph for animals
+      const animalData = <%- JSON.stringify(results.animal) %>;
+
+      new Chart(document.getElementById('animalChart'), {
+        type: 'bar',
+        data: {
+          labels: animalData.map(d => d.animal),
+          datasets: [{
+            label: 'Votes',
+            data: animalData.map(d => d.count),
+            backgroundColor: ['#9b59b6', '#e67e22', '#1abc9c'],
+            borderRadius: 6,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, ticks: { stepSize: 1 } }
+          }
+        }
+      });
+
+    </script>
+</body>
+</html>

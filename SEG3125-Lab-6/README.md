@@ -1,0 +1,1 @@
+To run this code, you must first need to have Node.js installed onto your computer. Clone the github respority and after you have got all the files. Start the server node app,js After that launch the survey page and you can enter in responses and see the results in real time.
