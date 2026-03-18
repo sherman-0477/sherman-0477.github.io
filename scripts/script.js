@@ -1,7 +1,10 @@
 const segButton   = document.getElementById("seg-button");
 const backButton  = document.getElementById("back-button");
+const nextButton  = document.getElementById("next-button");
+const backButton2 = document.getElementById("back-button-2");
 const mainButtons = document.getElementById("main-buttons");
 const segMenu     = document.getElementById("seg-menu");
+const segMenu2    = document.getElementById("seg-menu-2");
 const wrapper     = document.querySelector(".menu-wrapper");
 
 /* Measure and apply an explicit pixel height to the wrapper.
@@ -57,3 +60,5 @@ window.addEventListener("DOMContentLoaded", () => {
 
 segButton.addEventListener("click",  () => switchTo(mainButtons, segMenu));
 backButton.addEventListener("click", () => switchTo(segMenu, mainButtons));
+nextButton.addEventListener("click", () => switchTo(segMenu, segMenu2));
+backButton2.addEventListener("click", () => switchTo(segMenu2, segMenu));
