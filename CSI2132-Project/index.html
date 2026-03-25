@@ -18,7 +18,7 @@
 
 <!-- Fix bg colour and a bunch of stuff cuz it looks fugly rn -->
    <body style="background-color:#FEFEFE;">
-    <nav class="navbar navbar-expand-md navbar-light border-bottom sticky-top" style="background-color:#1c2e4a;">
+    <nav class="navbar navbar-expand-md navbar-dark border-bottom sticky-top" style="background-color:#1c2e4a;">
     <div class="container d-flex align-items-center gap-3">
       <a class="navbar-brand d-flex align-items-center gap-3 mb-0" href="#top" style="text-decoration:none;">
         <img src="" alt="e-Hotels" style="height:60px;" class="img-fluid rounded"/>
@@ -27,6 +27,20 @@
           <div style="color: white;">Book a room today!</div>
         </div>
       </a>
+
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Took this from my SEG3125 Lab - Doesn't work yet-->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto gap-md-2">
+          <li class="nav-item"><a class="nav-link" href="#step-1" data-nav-step="1">Create/Manage Booking</a></li>>
+          <li class="nav-item"><a class="nav-link" href="#step-2" data-nav-step="2">Staff Portal</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 </head>
 </html>
