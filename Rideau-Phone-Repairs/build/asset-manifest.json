@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Rideau-Phone-Repairs/static/css/main.885c3e83.css",
+    "main.js": "/Rideau-Phone-Repairs/static/js/main.0d6296a0.js",
+    "index.html": "/Rideau-Phone-Repairs/index.html",
+    "main.885c3e83.css.map": "/Rideau-Phone-Repairs/static/css/main.885c3e83.css.map",
+    "main.0d6296a0.js.map": "/Rideau-Phone-Repairs/static/js/main.0d6296a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.885c3e83.css",
+    "static/js/main.0d6296a0.js"
+  ]
+}
