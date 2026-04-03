@@ -1,46 +1,525 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>e-Hotels - Book a room today!</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-    crossorigin="anonymous"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
 
-  <link
-   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-   rel="stylesheet"
-   />
+<!-- Website Header -->
+<nav class="navbar navbar-expand-md navbar-dark border-bottom sticky-top" style="background-color:#1c2e4a;">
+  <div class="container d-flex align-items-center gap-3">
+    <a class="navbar-brand d-flex align-items-center gap-2 mb-0" href="#sec-search" style="text-decoration:none;">
+      <i class="bi bi-building fs-3"></i>
+      <div>
+        <div style="color:white;font-weight:700;font-size:1.25rem;line-height:1.1;">e-Hotels</div>
+        <div style="color:#a9c4e8;font-size:0.75rem;">Book a room today!</div>
+      </div>
+    </a>
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto gap-md-1 align-items-center">
+        <li class="nav-item"><a class="nav-link" href="#sec-search"><i class="bi bi-search me-1"></i>Search</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sec-staff"><i class="bi bi-person-badge me-1"></i>Staff</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sec-views"><i class="bi bi-bar-chart me-1"></i>Views</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<!-- Fix bg colour and a bunch of stuff cuz it looks fugly rn -->
-   <body style="background-color:#FEFEFE;">
-    <nav class="navbar navbar-expand-md navbar-dark border-bottom sticky-top" style="background-color:#1c2e4a;">
-    <div class="container d-flex align-items-center gap-3">
-      <a class="navbar-brand d-flex align-items-center gap-3 mb-0" href="#top" style="text-decoration:none;">
-        <img src="" alt="e-Hotels" style="height:60px;" class="img-fluid rounded"/>
-        <div>
-          <div style="color: white;">e-Hotels</div>
-          <div style="color: white;">Book a room today!</div>
+<main class="container my-4">
+
+<!-- Search Section -->
+<section class="section" id="sec-search">
+  <div class="card shadow-sm mb-4 border-0" style="background:#f0f5ff;">
+    <div class="card-body p-4">
+      <h5 class="card-title fw-bold mb-3"><i class="bi bi-search text-primary me-2"></i>Find Available Rooms</h5>
+      <div class="row g-3 align-items-end">
+        <div class="col-md-3 col-6">
+          <label class="form-label fw-semibold small">Check-In</label>
+          <input type="date" class="form-control" id="s_start" onchange="searchRooms()">
         </div>
-      </a>
-
-      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Took this from my SEG3125 Lab - Doesn't work yet-->
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto gap-md-2">
-          <li class="nav-item"><a class="nav-link" href="#step-1" data-nav-step="1">Create/Manage Booking</a></li>>
-          <li class="nav-item"><a class="nav-link" href="#step-2" data-nav-step="2">Staff Portal</a></li>
-        </ul>
+        <div class="col-md-3 col-6">
+          <label class="form-label fw-semibold small">Check-Out</label>
+          <input type="date" class="form-control" id="s_end" onchange="searchRooms()">
+        </div>
+        <div class="col-md-2 col-6">
+          <label class="form-label fw-semibold small">Capacity</label>
+          <select class="form-select" id="s_capacity" onchange="searchRooms()">
+            <option value="">Any</option>
+            <option value="Single">Single</option>
+            <option value="Double">Double</option>
+            <option value="Triple">Triple</option>
+            <option value="Quad">Quad</option>
+            <option value="Suite">Suite</option>
+          </select>
+        </div>
+        <div class="col-md-2 col-6">
+          <label class="form-label fw-semibold small">City / Area</label>
+          <select class="form-select" id="s_area" onchange="searchRooms()"><option value="">Any</option></select>
+        </div>
+        <div class="col-md-2 col-6">
+          <label class="form-label fw-semibold small">Hotel Chain</label>
+          <select class="form-select" id="s_chain" onchange="searchRooms()"><option value="">Any</option></select>
+        </div>
+        <div class="col-md-2 col-6">
+          <label class="form-label fw-semibold small">Min Stars</label>
+          <select class="form-select" id="s_category" onchange="searchRooms()">
+            <option value="">Any</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </div>
+        <div class="col-md-2 col-6">
+          <label class="form-label fw-semibold small">Max Price ($)</label>
+          <input type="number" class="form-control" id="s_price" min="0" placeholder="No limit" onchange="searchRooms()">
+        </div>
+        <div class="col-md-2 col-6">
+          <label class="form-label fw-semibold small">Min Rooms in Hotel</label>
+          <input type="number" class="form-control" id="s_rooms" min="0" placeholder="Any" onchange="searchRooms()">
+        </div>
+        <div class="col-12 d-flex gap-2 align-items-center">
+          <button class="btn btn-primary px-4" onclick="searchRooms()">
+            <i class="bi bi-search me-1"></i>Search
+          </button>
+          <button class="btn btn-outline-secondary" onclick="clearSearch()">
+            <i class="bi bi-x-circle me-1"></i>Clear
+          </button>
+          <span id="searchCount" class="text-muted small ms-2"></span>
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
+  <div id="searchResults" class="row g-3"></div>
+</section>
 
-</head>
+<!-- Staff Portal -->
+<section class="section d-none" id="sec-staff">
+  <h2 class="mb-4 border-bottom pb-2 fw-bold">
+    <i class="bi bi-person-badge text-primary me-2"></i>Staff Portal
+  </h2>
+
+  <ul class="nav nav-tabs mb-4" id="staffTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="crud-tab" data-bs-toggle="tab" data-bs-target="#crud" type="button" role="tab">
+        <i class="bi bi-table me-1"></i>Database Management
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="renting-tab" data-bs-toggle="tab" data-bs-target="#renting" type="button" role="tab" onclick="loadRentings()">
+        <i class="bi bi-key me-1"></i>Rentings &amp; Payments
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="booking-tab" data-bs-toggle="tab" data-bs-target="#bookings-pane" type="button" role="tab" onclick="loadBookings()">
+        <i class="bi bi-calendar-check me-1"></i>Bookings
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="staffTabContent">
+
+    <!-- CRUD Tab -->
+    <div class="tab-pane fade show active" id="crud" role="tabpanel">
+      <div class="row g-3 mb-4">
+        <div class="col-auto">
+          <label class="form-label fw-semibold">Manage</label>
+          <select class="form-select" id="crudEntity" onchange="loadCrudTable()">
+            <option value="customers">Customers</option>
+            <option value="employees">Employees</option>
+            <option value="hotels">Hotels</option>
+            <option value="rooms">Rooms</option>
+            <option value="chains">Hotel Chains</option>
+          </select>
+        </div>
+        <div class="col-auto d-flex align-items-end">
+          <button class="btn btn-success" onclick="openAddModal()">
+            <i class="bi bi-plus-lg me-1"></i>Add New
+          </button>
+        </div>
+        <div class="col-auto d-flex align-items-end">
+          <button class="btn btn-outline-secondary" onclick="loadCrudTable()">
+            <i class="bi bi-arrow-clockwise me-1"></i>Refresh
+          </button>
+        </div>
+      </div>
+      <div id="crudTableContainer">
+        <div class="text-muted">Select an entity type above to begin.</div>
+      </div>
+    </div>
+
+    <!-- Renting Tab -->
+    <div class="tab-pane fade" id="renting" role="tabpanel">
+      <div class="row g-3 mb-4">
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="card-title fw-bold"><i class="bi bi-door-open me-2 text-success"></i>Check-In (Convert Booking → Renting)</h6>
+              <p class="small text-muted">Look up a pending booking and check the customer in.</p>
+              <button class="btn btn-success" onclick="openCheckinModal()">
+                <i class="bi bi-box-arrow-in-right me-1"></i>Check-In Customer
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="card-title fw-bold"><i class="bi bi-person-walking me-2 text-primary"></i>Walk-In Renting</h6>
+              <p class="small text-muted">Customer has no booking — create a renting directly.</p>
+              <button class="btn btn-primary" onclick="openWalkinModal()">
+                <i class="bi bi-plus-circle me-1"></i>New Walk-In Renting
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="card-title fw-bold"><i class="bi bi-credit-card me-2 text-warning"></i>Record Payment</h6>
+              <p class="small text-muted">Add a payment to an active renting.</p>
+              <button class="btn btn-warning" onclick="openPaymentModal()">
+                <i class="bi bi-cash me-1"></i>Record Payment
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="card-title fw-bold"><i class="bi bi-door-closed me-2 text-danger"></i>Check-Out</h6>
+              <p class="small text-muted">Mark a renting as completed when customer checks out.</p>
+              <button class="btn btn-danger" onclick="openCheckoutModal()">
+                <i class="bi bi-box-arrow-right me-1"></i>Check-Out Customer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h6 class="fw-bold mt-4 mb-3">Active Rentings</h6>
+      <button class="btn btn-sm btn-outline-secondary mb-3" onclick="loadRentings()">
+        <i class="bi bi-arrow-clockwise me-1"></i>Refresh
+      </button>
+      <div id="rentingsTableContainer"></div>
+    </div>
+
+    <!-- Bookings Tab -->
+    <div class="tab-pane fade" id="bookings-pane" role="tabpanel">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h6 class="fw-bold mb-0">All Bookings</h6>
+        <button class="btn btn-sm btn-outline-secondary" onclick="loadBookings()">
+          <i class="bi bi-arrow-clockwise me-1"></i>Refresh
+        </button>
+      </div>
+      <div id="bookingsTableContainer"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Views -->
+<section class="section d-none" id="sec-views">
+  <h2 class="mb-4 border-bottom pb-2 fw-bold">
+    <i class="bi bi-bar-chart text-primary me-2"></i>Database Views
+  </h2>
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-header fw-bold bg-primary text-white">
+          <i class="bi bi-geo-alt me-2"></i>View 1 — Available Rooms per City
+        </div>
+        <div class="card-body p-0">
+          <div id="viewRoomsPerCity"><div class="p-3 text-muted">Loading...</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-header fw-bold bg-success text-white">
+          <i class="bi bi-building me-2"></i>View 2 — Total Capacity per Hotel
+        </div>
+        <div class="card-body p-0">
+          <div id="viewCapacityPerHotel"><div class="p-3 text-muted">Loading...</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Booking Modal -->
+<div class="modal fade" id="bookingModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title"><i class="bi bi-calendar-plus me-2"></i>Book Room</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div id="bookingRoomInfo" class="alert alert-info mb-3"></div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Customer ID</label>
+          <div class="input-group">
+            <input type="number" class="form-control" id="bk_customerID" placeholder="Enter Customer ID">
+            <button class="btn btn-outline-secondary" onclick="lookupCustomer()">Lookup</button>
+          </div>
+          <div id="bk_customerInfo" class="mt-2 small text-muted"></div>
+        </div>
+        <div class="row g-2">
+          <div class="col-6">
+            <label class="form-label fw-semibold">Check-In</label>
+            <input type="date" class="form-control" id="bk_start">
+          </div>
+          <div class="col-6">
+            <label class="form-label fw-semibold">Check-Out</label>
+            <input type="date" class="form-control" id="bk_end">
+          </div>
+        </div>
+        <p class="small text-muted mt-2">Don't have an account? <a href="#" onclick="openRegisterCustomerModal()">Register here</a>.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary" onclick="submitBooking()">
+          <i class="bi bi-check-lg me-1"></i>Confirm Booking
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Register Customer Modal -->
+<div class="modal fade" id="registerCustomerModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-person-plus me-2"></i>Register New Customer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label">Full Name</label><input class="form-control" id="reg_name"></div>
+        <div class="mb-3"><label class="form-label">Address</label><input class="form-control" id="reg_address"></div>
+        <div class="row g-2">
+          <div class="col-6">
+            <label class="form-label">ID Type</label>
+            <select class="form-select" id="reg_idtype">
+              <option>SSN</option><option>SIN</option><option>Driver's License</option><option>Passport</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label">ID Number</label>
+            <input class="form-control" id="reg_idnumber">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-success" onclick="submitRegisterCustomer()">Register</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CRUD Modal -->
+<div class="modal fade" id="crudModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="crudModalTitle">Add / Edit</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="crudModalBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary" id="crudModalSave" onclick="saveCrudForm()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Check-In Modal -->
+<div class="modal fade" id="checkinModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title"><i class="bi bi-box-arrow-in-right me-2"></i>Check-In Customer</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Search Pending Bookings</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="ci_search" placeholder="Customer name or booking ID...">
+            <button class="btn btn-outline-secondary" onclick="searchBookings()">Search</button>
+          </div>
+        </div>
+        <div id="ci_results"></div>
+        <div id="ci_selected" class="d-none">
+          <hr>
+          <h6 class="fw-bold">Selected Booking</h6>
+          <div id="ci_selectedInfo" class="alert alert-success"></div>
+          <label class="form-label">Employee ID (optional)</label>
+          <input type="number" class="form-control w-50" id="ci_employeeID" placeholder="Your employee ID">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-success d-none" id="ci_confirmBtn" onclick="submitCheckin()">
+          <i class="bi bi-check-lg me-1"></i>Confirm Check-In
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Walk-In Modal -->
+<div class="modal fade" id="walkinModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title"><i class="bi bi-person-walking me-2"></i>Walk-In Renting</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Customer ID</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="wi_customerID" placeholder="Customer ID">
+              <button class="btn btn-outline-secondary" onclick="lookupCustomerWI()">Lookup</button>
+            </div>
+            <div id="wi_customerInfo" class="mt-1 small text-muted"></div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Employee ID (optional)</label>
+            <input type="number" class="form-control" id="wi_employeeID" placeholder="Your employee ID">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">Room ID</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="wi_roomID" placeholder="Room ID">
+              <button class="btn btn-outline-secondary" onclick="lookupRoomWI()">Check</button>
+            </div>
+            <div id="wi_roomInfo" class="mt-1 small text-muted"></div>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label fw-semibold">Check-In Date</label>
+            <input type="date" class="form-control" id="wi_start">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label fw-semibold">Check-Out Date</label>
+            <input type="date" class="form-control" id="wi_end">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-primary" onclick="submitWalkin()">
+          <i class="bi bi-check-lg me-1"></i>Create Renting
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Payment -->
+<div class="modal fade" id="paymentModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title"><i class="bi bi-cash me-2"></i>Record Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Renting ID</label>
+          <div class="input-group">
+            <input type="number" class="form-control" id="pay_rentingID" placeholder="Renting ID">
+            <button class="btn btn-outline-secondary" onclick="lookupRenting()">Lookup</button>
+          </div>
+          <div id="pay_rentingInfo" class="mt-1 small text-muted"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Amount ($)</label>
+          <input type="number" step="0.01" class="form-control" id="pay_amount" placeholder="0.00">
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Payment Method</label>
+          <select class="form-select" id="pay_method">
+            <option>Credit Card</option>
+            <option>Debit Card</option>
+            <option>Cash</option>
+            <option>Bank Transfer</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-warning" onclick="submitPayment()">
+          <i class="bi bi-check-lg me-1"></i>Record Payment
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Check-Out Modal -->
+<div class="modal fade" id="checkoutModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title"><i class="bi bi-box-arrow-right me-2"></i>Check-Out Customer</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Renting ID</label>
+          <div class="input-group">
+            <input type="number" class="form-control" id="co_rentingID" placeholder="Renting ID">
+            <button class="btn btn-outline-secondary" onclick="lookupRentingCO()">Lookup</button>
+          </div>
+          <div id="co_rentingInfo" class="mt-1 small text-muted"></div>
+        </div>
+        <div class="alert alert-warning small">
+          <i class="bi bi-exclamation-triangle me-1"></i>
+          The renting will be marked as <strong>Completed</strong>. Ensure all payments have been collected first.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-danger" onclick="submitCheckout()">
+          <i class="bi bi-check-lg me-1"></i>Confirm Check-Out
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Notifications -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+  <div id="appToast" class="toast" role="alert">
+    <div class="toast-header">
+      <strong class="me-auto" id="toastTitle">Notice</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body" id="toastBody"></div>
+  </div>
+</div>
+
+<footer>
+  <p style="text-align:center; color: #6c757d;"> Project made for CSI2132 By Sherman, Joanna, and William</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-4C7hPaQL+gW1GRMUYCvS0/lk+Bk7u5hkop0kQ4SCp1M4T+x+niIf6lMwiwQ9LT+B" crossorigin="anonymous"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/rooms.js"></script>
+<script src="scripts/crud.js"></script>
+<script src="scripts/rentals.js"></script>
+</body>
 </html>
