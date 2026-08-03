@@ -1,7 +1,9 @@
 # SEG2105 PROJECT - GROUP 65
 
-  This project was completed in Autumn 2023, and it now sits in my personal repository as a showcase.
+  This project was a cycling app, where users could sign up/log in, track their routes, and plan cycling events.
+  It was completed in Autumn 2023, and it now sits in my personal repository as a showcase.
   The project was completed in a group of 5. My role was to create the login menu & set up a database to store user info.
+  NOTE: This app DOES NOT COMPILE. I removed some secrets/confidential files & it only serves as a portfolio piece.
 
 ## Original readme
 Name: Alejandro Chong 			    Student#: 300294352
