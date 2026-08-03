@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Welcome to the Grimpeurs Cycling Club</string>
+
+    <string name="user_name">Username</string>
+    <string name="Email">E-mail address</string>
+    <string name="user_Password">Password</string>
+    <string name="user_Register">Register</string>
+    <string name="user_Welcome">Welcome</string>
+
+    <string name="Login_btn">Login Button</string>
+    <string name="Login_transfer">To Login</string>
+
+    <string name="radio_Admin">Administrator</string>
+    <string name="radio_Event_Organizer">Event Organizer</string>
+    <string name="radio_Participant">Participant</string>
+
+    <string name="Admin">Welcome Administrator </string>
+    <string name="Admin_Choices">What do you want to do?</string>
+
+    <string name="Event_manage">How do you want to manage your events?</string>
+    <string name="Event_list">Event List</string>
+    <string name="Delete_event">Delete event</string>
+
+    <string name="Acc_manage">How do you want to manage your accounts?</string>
+    <string name="Acc_list">Account List</string>
+    <string name="Delete_Acc">Delete Account</string>
+
+    <string name="radio_AccManage">Manage your Accounts</string>
+    <string name="radio_EventManage">Manage your Events</string>
+
+    <string name="Event_Organizer">Welcome Event Organizer!</string>
+    <string name="Add_event">Add Events</string>
+
+
+    <string name="Participant">Welcome Participant</string>
+
+</resources>

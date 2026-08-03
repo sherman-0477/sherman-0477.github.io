@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\stdml.BISMARCK\\.gradle\\daemon\\7.5\\com.example.seg2105f23_project.app-mergeDebugResources-38:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\stdml.BISMARCK\\.gradle\\daemon\\7.5\\com.example.seg2105f23_project.app-main-41:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "com.example.seg2105f23_project.app-mergeDebugResources-38:/layout/activity_register.xml",
+        "source": "com.example.seg2105f23_project.app-main-41:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.example.seg2105f23_project.app-mergeDebugResources-38:/layout/activity_login.xml",
+        "source": "com.example.seg2105f23_project.app-main-41:/layout/activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\stdml.BISMARCK\\.gradle\\daemon\\7.5\\com.example.seg2105f23_project.app-mergeDebugResources-38:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\stdml.BISMARCK\\.gradle\\daemon\\7.5\\com.example.seg2105f23_project.app-main-41:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "com.example.seg2105f23_project.app-mergeDebugResources-38:/layout/activity_admin_login.xml",
+        "source": "com.example.seg2105f23_project.app-main-41:/layout/activity_admin_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\stdml.BISMARCK\\.gradle\\daemon\\7.5\\com.example.seg2105f23_project.app-mergeDebugResources-38:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\stdml.BISMARCK\\.gradle\\daemon\\7.5\\com.example.seg2105f23_project.app-main-41:\\layout\\activity_main.xml"
+    }
+]

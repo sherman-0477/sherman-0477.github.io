@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3C776F6F"
+    tools:context=".activity_user_profile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#5CC09F">
+
+
+            <ImageView
+                android:id="@+id/imageView_profile_dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/no_profile_pic" />
+
+            <TextView
+                android:id="@+id/textView_show_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageView_profile_dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:hint="Loading..."
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="220dp"
+            android:layout_margin="15dp"
+            android:background="@color/white"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/ic_profile"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_profile" />
+
+            <TextView
+                android:id="@+id/textView_show_full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/ic_profile"
+                android:layout_marginStart="50dp"
+                android:hint="Loading"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/divider_name"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/textView_show_full_name"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/darker_gray" />
+
+            <ImageView
+                android:id="@+id/ic_phone_number"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/divider_name"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_mobile" />
+
+            <TextView
+                android:id="@+id/textView_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider_name"
+                android:layout_alignStart="@id/ic_phone_number"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:hint="Loading"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/divider_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <ImageView
+                android:id="@+id/ic_social_media"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/ic_phone_number"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/instagram" />
+
+            <TextView
+                android:id="@+id/textView_social_media"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_phone_number"
+                android:layout_alignStart="@id/ic_social_media"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:hint="Loading"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/divider_social_media"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/divider_phone_number"
+                android:layout_marginTop="43dp"
+                android:background="@android:color/darker_gray" />
+
+            <ImageView
+                android:id="@+id/ic_main_contact"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/ic_social_media"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/guidance" />
+
+            <TextView
+                android:id="@+id/textView_main_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_social_media"
+                android:layout_alignStart="@id/ic_social_media"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:hint="Loading"
+                android:textSize="18sp" />
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Apply" />
+
+    </LinearLayout>
+</ScrollView>

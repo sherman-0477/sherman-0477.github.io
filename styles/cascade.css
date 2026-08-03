@@ -1,9 +1,9 @@
 /* ── Menu layout ────────────────────────────────────────────── */
 
 .links-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
     margin-bottom: 0;
 }
 
@@ -28,7 +28,6 @@
     text-align: left;
     text-decoration: none;
     color: #1a0a3e;
-    margin-bottom: 12px;
 
     /* Slide-in/out animation */
     opacity: 0;
@@ -71,6 +70,32 @@
     flex-shrink: 0;
 }
 
+/* ── Full-width row items (SEG button, Back button, odd-one-out lab) ── */
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* ── Dummy / placeholder buttons ───────────────────────────────── */
+
+.dummy-btn {
+    cursor: not-allowed;
+}
+
+.menu-btn.dummy-btn.show {
+    opacity: 0.55;
+}
+
+.dummy-btn:hover {
+    background: #f5f5f5;
+    color: #1a0a3e;
+    transform: none;
+}
+
+.dummy-btn.show:hover {
+    transform: none;
+}
+
 /* ── Back button variant ────────────────────────────────────── */
 
 .back-btn {
@@ -103,4 +128,12 @@
 
 .menu-btn:hover .lab-badge {
     background: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Mobile: collapse to single column ─────────────────────── */
+
+@media (max-width: 480px) {
+    .links-container {
+        grid-template-columns: 1fr;
+    }
 }
